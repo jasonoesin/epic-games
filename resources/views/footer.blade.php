@@ -1,5 +1,3 @@
-<style>
-</style>
 
 <footer>
     <div class="bg-[#202020] p-[6rem] flex flex-col gap-8">

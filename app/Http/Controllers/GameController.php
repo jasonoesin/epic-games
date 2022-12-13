@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
@@ -45,10 +46,18 @@ class GameController extends Controller
         $genres = DB::select($query);
 
 
+        $user = Auth::user();
+
+        $wishlisted = false;
+
+        if($user)
+            $wishlisted = DB::select('select * from wishlists where user_id = ? and game_id = ?', [$user->id, $id]);
+
         return view('game',
             [
                 'game' => $game[0],
-                'genres' => collect($genres)->pluck('name')
+                'genres' => collect($genres)->pluck('name'),
+                'wishlisted'=> ($wishlisted) ? true : false
             ]);
     }
 }

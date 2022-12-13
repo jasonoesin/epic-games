@@ -25,8 +25,24 @@
                                 @endif
                             @endif
                         </div>
-                        <div class="w-full bg-[#0074e4] text-center py-4 px-2 rounded">Buy Now</div>
-                        <div class="w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">ADD TO WISHLIST</div>
+                        @if(\Illuminate\Support\Facades\Auth::user())
+
+                            <form method="post" action="{{url('/order')}}">
+                                @csrf
+                                <input hidden name="game_id" value="{{$game->id}}">
+                                <button type="submit" class="cursor-pointer w-full bg-[#0074e4] text-center py-4 px-2 rounded">Buy Now</button>
+                            </form>
+                            <form method="post">
+                                @csrf
+                                <input hidden name="game_id" value="{{$game->id}}">
+
+                                @if(!$wishlisted)
+                                <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">ADD TO WISHLIST</button>
+                                @else
+                                <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">REMOVE FROM WISHLIST</button>
+                                @endif
+                            </form>
+                        @endif
 
                         <div class="flex justify-between text-[0.8rem] border-b border-b-[#2a2a2a] py-2 font-bold">
                             <div class="text-gray-400">Refund Type</div>
