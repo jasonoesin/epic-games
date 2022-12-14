@@ -83,11 +83,12 @@
             <form action="{{url("/order/$game->id")}}" method="post" class="mt-4">
                 @csrf
                 <label class="flex gap-4">
-                    <input type="checkbox" class="border w-5 h-5 border-black/40">
+                    <input name="agree" type="checkbox" class="border w-5 h-5 border-black/40">
                     <span class="text-[0.8rem] text-black/70">
                         I agree with the terms and rules applied on Epic Games.
                     </span>
                 </label>
+
 
 
                 <div class="absolute bottom-0 w-full px-4 left-0 right-0 text-white p-4 bg-[#f2f2f2] drop-shadow-2xl border-t">

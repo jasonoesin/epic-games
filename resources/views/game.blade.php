@@ -30,7 +30,12 @@
                             <form method="post" action="{{url('/order')}}">
                                 @csrf
                                 <input hidden name="game_id" value="{{$game->id}}">
-                                <button type="submit" class="cursor-pointer w-full bg-[#0074e4] text-center py-4 px-2 rounded">Buy Now</button>
+
+                                @if(!$bought)
+                                    <button type="submit" class="cursor-pointer w-full bg-[#0074e4] text-center py-4 px-2 rounded">Buy Now</button>
+                                @else
+                                    <button disabled class="cursor-pointer w-full bg-black/40 text-center py-4 px-2 rounded">Game Owned</button>
+                                @endif
                             </form>
                             <form method="post">
                                 @csrf

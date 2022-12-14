@@ -8,8 +8,9 @@
                 <div class="!FREE-GAMES py-4 rounded mb-8">
                     <div class="free-top py-4 text-[2rem]">Wishlisted Games</div>
 
-                        @forelse($games as $item)
+
                         <div class="grid grid-cols-5 gap-4 gap-y-16">
+                            @forelse($games as $item)
                             <a href="{{url("./game/$item->id")}}" class="item cursor-pointer">
                                 <img
                                     class="bg-white hover:opacity-90 w-full h-[22.5rem] object-cover rounded"
@@ -35,13 +36,17 @@
                                     </div>
                                 </div>
                             </a>
+                            @empty
+                            @endforelse
                         </div>
-                        @empty
+
+                        @if(!$games)
                             <div class="flex flex-col items-center">
                                 <div class="text-[2rem]">No results found</div>
                                 <div class="text-[1.25rem] text-white/50">Start wishlisting games !</div>
                             </div>
-                        @endforelse
+                        @endif
+
             </div>
         </div>
 @endsection

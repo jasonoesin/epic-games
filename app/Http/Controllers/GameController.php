@@ -49,15 +49,19 @@ class GameController extends Controller
         $user = Auth::user();
 
         $wishlisted = false;
+        $bought = false;
 
-        if($user)
+        if($user){
             $wishlisted = DB::select('select * from wishlists where user_id = ? and game_id = ?', [$user->id, $id]);
+            $bought = DB::select('select * from orders where user_id = ? and game_id = ?', [$user->id, $id]);
+        }
 
         return view('game',
             [
                 'game' => $game[0],
                 'genres' => collect($genres)->pluck('name'),
-                'wishlisted'=> ($wishlisted) ? true : false
+                'wishlisted'=> ($wishlisted) ? true : false,
+                'bought'=> ($bought) ? true : false
             ]);
     }
 }

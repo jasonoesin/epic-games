@@ -22,9 +22,13 @@ class OrderController extends Controller
     public function order(Request $request){
         $user = Auth::user();
 
-        DB::insert('insert into orders values(null, ?, ?) ', [$user->id, $request->id]);
+        if($request->agree != null){
+            DB::insert('insert into orders values(null, ?, ?) ', [$user->id, $request->id]);
 
-        return redirect('owned');
+            return redirect('owned');
+        }
+
+        return redirect('/');
     }
 
     public function owned_index(Request $request){
