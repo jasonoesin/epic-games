@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -14,6 +16,9 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
+        $countries = Country::pluck('id');
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -21,6 +26,7 @@ class UserFactory extends Factory
             'password' => bcrypt("password"), // password
             'dob' => $this->faker->dateTime(now()),
             'remember_token' => Str::random(10),
+            'country_id' => $this->faker->randomElement($countries)
         ];
     }
 

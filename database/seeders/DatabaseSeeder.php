@@ -15,13 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(10)->create();
-
-         User::factory()->create([
-             'email'=>'admin@gmail.com',
-             'password'=> bcrypt('admin')
-         ]);
-
          $this->call(
              [
                  CountrySeeder::class,
@@ -30,5 +23,12 @@ class DatabaseSeeder extends Seeder
                  GenreDetailSeeder::class
              ]
          );
+
+        User::factory(10)->create();
+
+        User::factory()->create([
+            'email'=>'admin@gmail.com',
+            'password'=> bcrypt('admin')
+        ]);
     }
 }

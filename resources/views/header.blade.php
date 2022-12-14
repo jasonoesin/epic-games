@@ -73,7 +73,7 @@
                 @if(\Illuminate\Support\Facades\Auth::user())
                     <div class="dropdown py-1 nav-link absolute top-[3rem] z-[10] flex items-center w-[8rem] justify-center flex-col ">
                         <a href="{{url('/wishlist')}}" class="">MY WISHLISTS</a>
-                        <a class="">MY GAMES</a>
+                        <a href="{{url('/owned')}}" class="">MY GAMES</a>
                         <a href="{{url('/logout')}}" class="">LOGOUT</a>
                     </div>
                 @endif

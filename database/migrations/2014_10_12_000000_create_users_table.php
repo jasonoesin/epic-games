@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamp('dob')->nullable();
 
+            $table->foreignId('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });
