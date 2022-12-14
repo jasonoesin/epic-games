@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
                  CountrySeeder::class,
                  GameSeeder::class,
                  GenreSeeder::class,
-                 GenreDetailSeeder::class
+                 GenreDetailSeeder::class,
+                 FeatureSeeder::class,
+                 FeatureDetailSeeder::class
              ]
          );
 

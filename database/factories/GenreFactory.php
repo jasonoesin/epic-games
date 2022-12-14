@@ -15,13 +15,6 @@ class GenreFactory extends Factory
      */
     public function definition()
     {
-//        $total_genre = rand(1, 3);
-//
-//        $genres = Genre::select('select * from genres');
-//
-//        dd($genres);
-//
-//        $randoms = Arr::random($genres, $total_genre);
 
         return [
 

@@ -98,7 +98,22 @@
                         </div>
                     </div>
 
-                    <div class="px-4 border-l border-l-[#2a2a2a] text-[rgb(255,255,255)]/60 min-h-[5rem]">Features</div>
+                    <div class="px-4 border-l border-l-[#2a2a2a] text-[rgb(255,255,255)]/60 min-h-[5rem]">
+                        <div class="">Features</div>
+                        <div class="genre-details flex">
+                            @foreach($features as $feature)
+                                @php
+                                    $url = strtolower($feature->name);
+                                @endphp
+
+                                @if($loop->last)
+                                    <a class="underline text-white">{{$feature->name}}</a>
+                                @else
+                                    <a class="underline text-white">{{$feature->name}},</a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
 

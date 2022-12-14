@@ -41,6 +41,8 @@ class GameController extends Controller
 
         $genre_details = DB::select('select genre_id from genre_details where game_id = ?', [$id]);
 
+        $feature_details = DB::select('select f.name from feature_details fd join games g on fd.game_id = g.id join features f on f.id = fd.feature_id where game_id = ?', [$id]);
+
         $query = "select name from genres where id in (" . implode(",",collect($genre_details)->pluck('genre_id')->toArray()) .")";
 
         $genres = DB::select($query);
@@ -60,6 +62,7 @@ class GameController extends Controller
             [
                 'game' => $game[0],
                 'genres' => collect($genres)->pluck('name'),
+                'features' => $feature_details,
                 'wishlisted'=> ($wishlisted) ? true : false,
                 'bought'=> ($bought) ? true : false
             ]);
