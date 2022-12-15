@@ -1,4 +1,5 @@
 @extends('view-template')
+@section('title',$genre->name)
 @section('content')
         <div class="content">
             <div class="px-[12rem]">

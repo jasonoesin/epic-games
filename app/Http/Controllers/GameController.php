@@ -11,6 +11,12 @@ class GameController extends Controller
 {
     //
     public function index(){
+
+        $sliders = Arr::random(
+            DB::select('select * from games'),
+            6
+        );
+
         $free = Arr::random(
             DB::select('select * from games where price = discount'),
             4
@@ -32,7 +38,8 @@ class GameController extends Controller
                 "top_sellers"=>$top_sellers,
                 "most_played"=>$most_played,
                 'newest'=> $newest,
-                'sale'=>$sale
+                'sale'=>$sale,
+                'sliders'=>$sliders
             ]);
     }
 

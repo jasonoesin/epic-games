@@ -1,4 +1,5 @@
 @extends('view-template')
+@section('title',"Genre")
 @section('content')
 
     <style>

@@ -1,4 +1,6 @@
 @extends('view-template')
+
+@section('title',$game->name)
 @section('content')
 
     <div class="content">
