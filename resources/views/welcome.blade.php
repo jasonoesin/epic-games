@@ -62,17 +62,16 @@
                         @foreach($sliders as $item)
                             @if($loop->first)
                                 <a href="{{url("/game/$item->id")}}" class="!BANNER-RIGHT-ITEM rounded-xl text-[0.9rem] items-center relative overflow-clip">
-
                                     <div id="progressBar" class="h-full absolute bg-[#363636] z-[1]">
                                     </div>
 
-                                    <div class="flex gap-2 relative z-[2] p-4 items-center hover:bg-[#363636] rounded-xl cursor-pointer">
+                                    <div class="flex gap-2 relative z-[2] p-4 items-center hover:bg-[#363636] rounded-xl cursor-pointer transition">
                                         <img class="w-10 h-12 rounded object-cover" src="{{$item->image}}" alt="">
                                         <div class="text-ellipsis-2">{{$item->name}}</div>
                                     </div>
                                 </a>
                             @else
-                                <a href="{{url("/game/$item->id")}}" class="!BANNER-RIGHT-ITEM rounded-xl text-[0.9rem] items-center relative overflow-clip">
+                                <a href="{{url("/game/$item->id")}}" class="!BANNER-RIGHT-ITEM rounded-xl text-[0.9rem] items-center relative overflow-clip transition">
                                     <div class="flex gap-2 relative z-[2] p-4 items-center hover:bg-[#363636] rounded cursor-pointer">
                                         <img class="w-10 h-12 rounded object-cover" src="{{$item->image}}" alt="">
                                         <div class="text-ellipsis-2">{{$item->name}}</div>
@@ -135,48 +134,6 @@
                             }
                             move();
                         </script>
-
-{{--                        <div class="!BANNER-RIGHT-ITEM bg-[#252525] rounded-xl text-[0.9rem] items-center relative">--}}
-{{--                            <div id="progressBar" class="h-full absolute bg-[#363636] rounded-xl z-[1]">--}}
-{{--                            </div>--}}
-
-{{--                            <div class="flex gap-2 relative z-[2] p-4">--}}
-{{--                                <img class="w-10 h-12 rounded" src="https://cdn2.unrealengine.com/egs-callisto-protocol-carousel-thumb-1200x1600-3538cf304bd3.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                                <div class="text-ellipsis-2">The Callisto Protocol</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="!BANNER-RIGHT-ITEM flex gap-2 p-4 rounded-xl text-[0.9rem] items-center">--}}
-{{--                            <img class="w-10 h-12 rounded"--}}
-{{--                                 src="https://cdn2.unrealengine.com/egs-midnight-suns-carousel-mobile-thumb-1200x1600-9023f577c144.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                            <div class="text-ellipsis-2">Marvel's Midnight Suns</div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="!BANNER-RIGHT-ITEM flex gap-2 p-4 rounded-xl text-[0.9rem] items-center">--}}
-{{--                            <img class="w-10 h-12 rounded"--}}
-{{--                                 src="https://cdn2.unrealengine.com/egs-need-for-speed-unbount-palace-edition-carousel-thumb-1200x1600-49ebf4fb1204.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                            <div class="text-ellipsis-2">Marvel's Midnight Suns</div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="!BANNER-RIGHT-ITEM flex gap-2 p-4 rounded-xl text-[0.9rem] items-center">--}}
-{{--                            <img class="w-10 h-12 rounded"--}}
-{{--                                 src="https://cdn2.unrealengine.com/egs-spider-man-miles-morales-carousel-thumb-1200x1600-b7c0fb2da84b.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                            <div class="text-ellipsis-2">--}}
-{{--                                Marvel's Spider-Man: Miles Morale sasdasdasdasdsa--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="!BANNER-RIGHT-ITEM flex gap-2 p-4 rounded-xl text-[0.9rem] items-center">--}}
-{{--                            <img class="w-10 h-12 rounded"--}}
-{{--                                 src="https://cdn2.unrealengine.com/egs-rubmleverse-trios-carousel-thumb-1200x1600-7f8e731a8e4c.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                            <div class="text-ellipsis-2">Rumbleverse</div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="!BANNER-RIGHT-ITEM flex gap-2 p-4 rounded-xl text-[0.9rem] items-center">--}}
-{{--                            <img class="w-10 h-12 rounded"--}}
-{{--                                 src="https://cdn2.unrealengine.com/egs-fall-guys-season-3-carousel-thumb-1200x1600-c8400239635d.jpg?h=480&resize=1&w=360" alt="">--}}
-{{--                            <div class="text-ellipsis-2">Fall Guys</div>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="!GAMES-ON-SALE mb-12">
@@ -188,7 +145,7 @@
                         @foreach($sale as $item)
                             <a href="{{url("./game/$item->id")}}" class="item">
                                 <img
-                                    class="w-full h-[15rem] object-cover rounded"
+                                    class="w-full h-[15rem] object-cover rounded hover:opacity-80 bg-white"
                                     src="{{$item->image}}" alt="">
                                 <div class="flex flex-col gap-1 mt-4">
                                     <p>{{$item->name}}</p>
@@ -220,7 +177,7 @@
                         @foreach($free as $item)
                             <a href="{{url("./game/$item->id")}}" class="item">
                                 <img
-                                    class="w-full h-[22.5rem] object-cover  rounded"
+                                    class="w-full h-[22.5rem] object-cover rounded bg-white hover:opacity-80"
                                     src="{{$item->image}}" alt="">
                                 <div class="flex flex-col gap-1 mt-4">
                                     <p>{{$item->name}}</p>

@@ -59,19 +59,24 @@
 
         <div class="flex right h-full">
             <div class="dropdown-hover">
-                <a href="{{url('/login')}}" class=" flex items-center w-[8rem] justify-center relative">
+                <div  class="w-[8rem] relative h-full">
                     @if(!\Illuminate\Support\Facades\Auth::user())
-                        <span class="">
-                            SIGN IN
-                        </span>
+                        <div class="flex items-center h-full justify-center">
+                            <a href="{{url('/login')}}" class="text-ellipsis overflow-hidden whitespace-nowrap h-fit">
+                                Sign In
+                            </a>
+                        </div>
                     @else
-                        <span class="text-ellipsis overflow-hidden whitespace-nowrap">
-                            {{\Illuminate\Support\Facades\Auth::user()->name}}
-                        </span>
+                        <div class="flex items-center h-full justify-center">
+                            <a class="text-ellipsis overflow-hidden whitespace-nowrap h-fit">
+                                {{\Illuminate\Support\Facades\Auth::user()->name}}
+                            </a>
+                        </div>
                     @endif
-                </a>
+                </div>
                 @if(\Illuminate\Support\Facades\Auth::user())
                     <div class="dropdown py-1 nav-link absolute top-[3rem] z-[10] flex items-center w-[8rem] justify-center flex-col ">
+                        <a href="{{url('/account')}}" class="">ACCOUNT</a>
                         <a href="{{url('/wishlist')}}" class="">MY WISHLISTS</a>
                         <a href="{{url('/owned')}}" class="">MY GAMES</a>
                         <a href="{{url('/logout')}}" class="">LOGOUT</a>

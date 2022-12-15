@@ -25,7 +25,8 @@ Route::get('/logout',[AuthController::class, 'logout']);
 Route::get('/register',[AuthController::class, 'register_index']);
 Route::post('/register',[AuthController::class, 'register']);
 
-
+Route::get('/account',[AuthController::class, 'account']);
+Route::post('/account',[AuthController::class, 'update_account']);
 
 Route::post('/order', [OrderController::class, 'index']);
 Route::post('/order/{id}', [OrderController::class, 'order']);

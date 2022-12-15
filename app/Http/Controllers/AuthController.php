@@ -90,4 +90,32 @@ class AuthController extends Controller
         }
 
     }
+
+    public function account(){
+
+        $countries = DB::select('select * from countries');
+
+        if(!Auth::check()){
+            return redirect('/');
+        }
+
+        return view('account', [
+            'countries' => $countries,
+            'user'=> Auth::user()
+        ]);
+    }
+
+    public function update_account(Request $request){
+
+        $user = Auth::user();
+        DB::update('update users set name = ?, country_id = ?, dob = ? where id = ?', [
+            $request->name,
+            $request->country_id,
+            $request->dob,
+            $user->id
+        ]);
+
+
+        return redirect('/account');
+    }
 }

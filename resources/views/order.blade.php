@@ -50,11 +50,11 @@
         <div class="bg-[#f2f2f2] h-[100vh] w-[20rem] px-4 py-8 relative">
             <div class="font-semibold flex relative">
                 <div class="">Order Summary</div>
-                <div class="absolute right-0 text-black/60">
+                <a href="{{url('/')}}" class="absolute right-0 text-black/60">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
                     </svg>
-                </div>
+                </a>
             </div>
             <div class="">
                 <div class="flex gap-2 py-4 rounded-xl text-[0.9rem] items-center">
