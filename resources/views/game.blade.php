@@ -39,16 +39,18 @@
                                     <button disabled class="cursor-pointer w-full bg-black/40 text-center py-4 px-2 rounded">Game Owned</button>
                                 @endif
                             </form>
-                            <form method="post">
-                                @csrf
-                                <input hidden name="game_id" value="{{$game->id}}">
+                            @if(!$bought)
+                                <form method="post">
+                                    @csrf
+                                    <input hidden name="game_id" value="{{$game->id}}">
 
-                                @if(!$wishlisted)
-                                <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">ADD TO WISHLIST</button>
-                                @else
-                                <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">REMOVE FROM WISHLIST</button>
-                                @endif
-                            </form>
+                                    @if(!$wishlisted)
+                                    <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">ADD TO WISHLIST</button>
+                                    @else
+                                    <button type="submit" class="cursor-pointer w-full border border-gray-400 text-center py-2 px-2 rounded text-[0.8rem]">REMOVE FROM WISHLIST</button>
+                                    @endif
+                                </form>
+                            @endif
                         @endif
 
                         <div class="flex justify-between text-[0.8rem] border-b border-b-[#2a2a2a] py-2 font-bold">

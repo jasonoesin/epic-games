@@ -92,6 +92,26 @@
 
 
                 <div class="absolute bottom-0 w-full px-4 left-0 right-0 text-white p-4 bg-[#f2f2f2] drop-shadow-2xl border-t">
+
+                    @if($errors->all())
+                        <div class="flex items-center gap-2 pb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 stroke-red-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                            </svg>
+                            <div class="text-black flex flex-col text-[0.8rem]">
+
+                                    @forelse($errors->all() as $error)
+                                        <div class="">
+                                            {{$error}}
+                                        </div>
+                                    @empty
+                                    @endforelse
+                            </div>
+                        </div>
+                    @endif
+
+
+
                     <button type="submit" class="bg-[#0074e4] w-full py-4 rounded">
                         PLACE ORDER
                     </button>
